@@ -6,7 +6,7 @@
 #    By: jisokim2 <jisokim2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/26 15:52:34 by jisokim2          #+#    #+#              #
-#    Updated: 2026/03/03 14:38:28 by jisokim2         ###   ########.fr        #
+#    Updated: 2026/03/05 09:05:23 by jisokim2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,11 @@ HEADER_DIR = HEADER/
 
 # $(patsubst pattern, replacement, text)
 # $(SRC_DIR)%.cpp
-SRC = $(wildcard $(SRC_DIR)*.cpp)
+SRC = $(SRC_DIR)main.cpp \
+		$(SRC_DIR)ClapTrap.cpp \
+		$(SRC_DIR)ScavTrap.cpp \
+		$(SRC_DIR)FragTrap.cpp \
+		
 OBJ = $(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRC))
 
 all: $(NAME)
