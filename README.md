@@ -8,7 +8,7 @@
     rbp	stack frame base
     rsp	stack pointer
  
- 
+ ```text
    0x00000000004032f0 <+0>:     push   %rbp
    0x00000000004032f1 <+1>:     mov    %rsp,%rbp
    0x00000000004032f4 <+4>:     sub    $0x30,%rsp
@@ -48,7 +48,7 @@
    0x0000000000403373 <+131>:   call   0x402560 <_ZN8ClapTrapD2Ev>
    0x0000000000403378 <+136>:   mov    -0x18(%rbp),%rdi
    0x000000000040337c <+140>:   call   0x4021b0 <_Unwind_Resume@plt>
-
+'''
    ## initializer lists (: ClapTrap(other)) are only allowed in constructors — not in operators.
 
 
@@ -153,3 +153,17 @@ we have to call base constructor explicitly
 # vptr is almost at starting point it is about virtual funtion so we call it it is polymorphic type!
 ## and vptr --> vtable  address --> virtual functions in this context it is default destructor!
 
+
+# Diamond memory looks like this
+DiamondTrap object:
+
++of        ScavTrap subobject
+           +0  vptr (for ScavTrap part)
+           +... ScavTrap members
+
++X + of    FragTrap subobject
+           +0  vptr (for FragTrap part)
+           +... FragTrap members
+
++Y + X     (virtual base) ClapTrap
+           stored separately
