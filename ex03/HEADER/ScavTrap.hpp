@@ -6,7 +6,7 @@
 /*   By: jisokim2 <jisokim2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 13:34:55 by jisokim2          #+#    #+#             */
-/*   Updated: 2026/03/05 08:24:46 by jisokim2         ###   ########.fr       */
+/*   Updated: 2026/04/08 16:17:09 by jisokim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
     explicit ScavTrap(const std::string &name);
     virtual ~ScavTrap();
     ScavTrap(const ScavTrap &other);
-    ScavTrap& operator=(const ScavTrap &other); // << this hmm 
+    ScavTrap& operator=(const ScavTrap &other);
     void guardGate();
     virtual void attack(const std::string &target);
 private:
